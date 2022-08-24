@@ -7,7 +7,7 @@ from flask_cors import CORS
 from typing import List, Dict, Any, Tuple, Optional
 
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
 
 
 def get_user(username: str) -> Optional[Dict[str, str]]:
@@ -92,7 +92,6 @@ def login():
         resp["message"] = "username or password is blank"
     else:
         success, message = try_authenticate_user(username, password, get_user(username))
-        print(success, message)
         resp["success"] = success
         resp["message"] = message
 
