@@ -40,7 +40,7 @@ def try_authenticate_user(username: str, password: str, true_user_pass: Dict[str
 
 def try_add_user(username: str, password: str, true_user_pass: Dict[str, str]) -> Tuple[str, str]:
     if true_user_pass:
-        return f"{username} already exists"
+        return False, f"{username} already exists"
 
     put_user(username, password)
     return True, f"{username} added"
